@@ -1,5 +1,3 @@
-using DotNet8.DomainDrivenDesignSample.Api.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

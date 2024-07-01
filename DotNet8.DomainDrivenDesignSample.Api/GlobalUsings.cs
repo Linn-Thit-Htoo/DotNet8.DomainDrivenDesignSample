@@ -1,5 +1,6 @@
 // Global using directives
 
+global using DotNet8.DomainDrivenDesignSample.Api.Extensions;
 global using DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
 global using DotNet8.DomainDrivenDesignSample.Domain.Interfaces.Blog;
 global using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
