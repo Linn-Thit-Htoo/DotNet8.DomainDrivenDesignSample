@@ -8,9 +8,13 @@ namespace DotNet8.DomainDrivenDesignSample.Api.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddFeatures(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddFeatures(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
-        services.AddDbContextService(builder)
+        services
+            .AddDbContextService(builder)
             .AddRepositoryService()
             .AddBusinessLogicService()
             .AddJsonService();
@@ -18,13 +22,19 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
+    private static IServiceCollection AddDbContextService(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
-        builder.Services.AddDbContext<AppDbContext>(opt =>
-        {
-            opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
-        }, ServiceLifetime.Transient);
+        builder.Services.AddDbContext<AppDbContext>(
+            opt =>
+            {
+                opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+            },
+            ServiceLifetime.Transient
+        );
 
         return services;
     }
@@ -43,10 +53,12 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection AddJsonService(this IServiceCollection services)
     {
-        services.AddControllers().AddJsonOptions(opt =>
-        {
-            opt.JsonSerializerOptions.PropertyNamingPolicy = null;
-        });
+        services
+            .AddControllers()
+            .AddJsonOptions(opt =>
+            {
+                opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
 
         return services;
     }
