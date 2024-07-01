@@ -1,7 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
-using DotNet8.DomainDrivenDesignSample.Domain.Shared;
-
-namespace DotNet8.DomainDrivenDesignSample.Domain.Interfaces.Blog;
+﻿namespace DotNet8.DomainDrivenDesignSample.Domain.Interfaces.Blog;
 
 public interface IBlogRepository
 {

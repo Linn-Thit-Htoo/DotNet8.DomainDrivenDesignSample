@@ -1,6 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Shared;
-
-namespace DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
+﻿namespace DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
 
 public class BlogRequestModel
 {
