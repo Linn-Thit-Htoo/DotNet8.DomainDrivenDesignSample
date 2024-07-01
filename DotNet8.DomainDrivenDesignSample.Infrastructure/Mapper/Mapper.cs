@@ -2,6 +2,8 @@
 
 public static class Mapper
 {
+    #region Blog
+
     public static BlogModel Change(this TblBlog dataModel)
     {
         return new BlogModel
@@ -22,4 +24,6 @@ public static class Mapper
             BlogContent = requestModel.BlogContent
         };
     }
+
+    #endregion
 }
