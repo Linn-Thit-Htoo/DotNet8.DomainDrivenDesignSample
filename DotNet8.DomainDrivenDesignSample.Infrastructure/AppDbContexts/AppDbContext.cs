@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.DomainDrivenDesignSample.Infrastructure.AppDbContexts;
+﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.AppDbContexts;
 
 public partial class AppDbContext : DbContext
 {
