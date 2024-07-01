@@ -1,5 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Interfaces.Blog;
-using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
+﻿using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
 using DotNet8.DomainDrivenDesignSample.Domain.Resources;
 using DotNet8.DomainDrivenDesignSample.Domain.Shared;
 

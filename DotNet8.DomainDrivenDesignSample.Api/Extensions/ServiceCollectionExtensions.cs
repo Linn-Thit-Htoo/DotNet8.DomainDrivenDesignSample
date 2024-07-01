@@ -1,10 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
-using DotNet8.DomainDrivenDesignSample.Domain.Interfaces.Blog;
-using DotNet8.DomainDrivenDesignSample.Infrastructure.AppDbContexts;
-using DotNet8.DomainDrivenDesignSample.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.DomainDrivenDesignSample.Api.Extensions;
+﻿namespace DotNet8.DomainDrivenDesignSample.Api.Extensions;
 
 public static class ServiceCollectionExtensions
 {
