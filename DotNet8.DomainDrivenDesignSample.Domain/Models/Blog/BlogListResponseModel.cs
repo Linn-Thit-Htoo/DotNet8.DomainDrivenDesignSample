@@ -1,7 +1,6 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Domain.Models.Blog
+﻿namespace DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
+
+public class BlogListResponseModel
 {
-    public class BlogListResponseModel
-    {
-        public List<BlogModel> Blogs { get; set; }
-    }
+    public List<BlogModel> Blogs { get; set; }
 }
