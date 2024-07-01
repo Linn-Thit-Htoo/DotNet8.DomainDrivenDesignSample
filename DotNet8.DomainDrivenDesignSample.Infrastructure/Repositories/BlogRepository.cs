@@ -1,8 +1,6 @@
 ﻿using DotNet8.DomainDrivenDesignSample.Domain.Interfaces.Blog;
-using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
 using DotNet8.DomainDrivenDesignSample.Domain.Resources;
 using DotNet8.DomainDrivenDesignSample.Domain.Shared;
-using DotNet8.DomainDrivenDesignSample.Infrastructure.AppDbContexts;
 using DotNet8.DomainDrivenDesignSample.Infrastructure.Mapper;
 using System;
 using System.Collections.Generic;
