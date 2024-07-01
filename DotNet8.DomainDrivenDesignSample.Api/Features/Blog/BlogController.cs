@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
+﻿namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
 
 [Route("api/[controller]")]
 [ApiController]
