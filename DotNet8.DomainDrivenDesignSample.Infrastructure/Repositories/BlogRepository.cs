@@ -17,7 +17,10 @@ public class BlogRepository : IBlogRepository
             await _context.TblBlogs.AddAsync(requestModel.Change());
             int result = await _context.SaveChangesAsync();
 
-            responseModel = Result<BlogResponseModel>.ExecuteResult(result, successStatusCode: EnumHttpStatusCode.Created);
+            responseModel = Result<BlogResponseModel>.ExecuteResult(
+                result,
+                successStatusCode: EnumHttpStatusCode.Created
+            );
         }
         catch (Exception ex)
         {
@@ -35,14 +38,20 @@ public class BlogRepository : IBlogRepository
             var item = await _context.TblBlogs.FindAsync(id);
             if (item is null)
             {
-                responseModel = Result<BlogResponseModel>.FailureResult(MessageResource.NotFound, EnumHttpStatusCode.NotFound);
+                responseModel = Result<BlogResponseModel>.FailureResult(
+                    MessageResource.NotFound,
+                    EnumHttpStatusCode.NotFound
+                );
                 goto result;
             }
 
             _context.TblBlogs.Remove(item);
             int result = await _context.SaveChangesAsync();
 
-            responseModel = Result<BlogResponseModel>.ExecuteResult(result, successStatusCode: EnumHttpStatusCode.Accepted);
+            responseModel = Result<BlogResponseModel>.ExecuteResult(
+                result,
+                successStatusCode: EnumHttpStatusCode.Accepted
+            );
         }
         catch (Exception ex)
         {
@@ -58,9 +67,7 @@ public class BlogRepository : IBlogRepository
         Result<BlogListResponseModel> responseModel;
         try
         {
-            var dataLst = await _context.TblBlogs
-                .OrderByDescending(x => x.BlogId)
-                .ToListAsync();
+            var dataLst = await _context.TblBlogs.OrderByDescending(x => x.BlogId).ToListAsync();
 
             var model = new BlogListResponseModel
             {
@@ -85,7 +92,10 @@ public class BlogRepository : IBlogRepository
             var item = await _context.TblBlogs.FindAsync(id);
             if (item is null)
             {
-                responseModel = Result<BlogResponseModel>.FailureResult(MessageResource.NotFound, EnumHttpStatusCode.NotFound);
+                responseModel = Result<BlogResponseModel>.FailureResult(
+                    MessageResource.NotFound,
+                    EnumHttpStatusCode.NotFound
+                );
                 goto result;
             }
 
@@ -107,7 +117,10 @@ public class BlogRepository : IBlogRepository
             _context.Update(item);
             int result = await _context.SaveChangesAsync();
 
-            responseModel = Result<BlogResponseModel>.ExecuteResult(result, successStatusCode: EnumHttpStatusCode.Accepted);
+            responseModel = Result<BlogResponseModel>.ExecuteResult(
+                result,
+                successStatusCode: EnumHttpStatusCode.Accepted
+            );
         }
         catch (Exception ex)
         {
