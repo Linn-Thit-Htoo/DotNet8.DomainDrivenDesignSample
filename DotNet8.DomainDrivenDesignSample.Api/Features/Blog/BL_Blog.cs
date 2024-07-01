@@ -1,8 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
-using DotNet8.DomainDrivenDesignSample.Domain.Resources;
-using DotNet8.DomainDrivenDesignSample.Domain.Shared;
-
-namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
+﻿namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
 
 public class BL_Blog
 {

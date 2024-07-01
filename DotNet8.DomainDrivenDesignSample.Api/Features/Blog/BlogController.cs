@@ -1,5 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
 
