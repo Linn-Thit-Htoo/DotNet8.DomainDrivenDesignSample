@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DotNet8.DomainDrivenDesignSample.Infrastructure.AppDbContexts;
+﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.AppDbContexts;
 
 public partial class TestTable
 {
