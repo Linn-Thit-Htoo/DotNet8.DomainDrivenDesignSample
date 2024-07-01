@@ -26,12 +26,13 @@ public class BlogRequestModel
 
         if (BlogContent!.IsNullOrEmpty())
         {
-            responseModel = Result<BlogResponseModel>.FailureResult("Blog Content cannot be empty.");
+            responseModel = Result<BlogResponseModel>.FailureResult(
+                "Blog Content cannot be empty."
+            );
             goto result;
         }
 
         responseModel = Result<BlogResponseModel>.SuccessResult();
-
 
         result:
         return responseModel;

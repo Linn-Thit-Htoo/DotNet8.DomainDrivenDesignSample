@@ -17,30 +17,67 @@ namespace DotNet8.DomainDrivenDesignSample.Domain.Shared
         }
         public EnumHttpStatusCode StatusCode { get; set; }
 
-        public static Result<T> SuccessResult(string message = "Success.", EnumHttpStatusCode statusCode = EnumHttpStatusCode.Success)
+        public static Result<T> SuccessResult(
+            string message = "Success.",
+            EnumHttpStatusCode statusCode = EnumHttpStatusCode.Success
+        )
         {
-            return new Result<T> { IsSuccess = true, Message = message, StatusCode = statusCode };
+            return new Result<T>
+            {
+                IsSuccess = true,
+                Message = message,
+                StatusCode = statusCode
+            };
         }
 
-        public static Result<T> SuccessResult(T data, string message = "Success.", EnumHttpStatusCode statusCode = EnumHttpStatusCode.Success)
+        public static Result<T> SuccessResult(
+            T data,
+            string message = "Success.",
+            EnumHttpStatusCode statusCode = EnumHttpStatusCode.Success
+        )
         {
-            return new Result<T> { Data = data, Message = message, StatusCode = statusCode };
+            return new Result<T>
+            {
+                Data = data,
+                Message = message,
+                StatusCode = statusCode
+            };
         }
 
-        public static Result<T> FailureResult(string message = "Fail.", EnumHttpStatusCode statusCode = EnumHttpStatusCode.BadRequest)
+        public static Result<T> FailureResult(
+            string message = "Fail.",
+            EnumHttpStatusCode statusCode = EnumHttpStatusCode.BadRequest
+        )
         {
-            return new Result<T> { IsSuccess = false, Message = message, StatusCode = statusCode };
+            return new Result<T>
+            {
+                IsSuccess = false,
+                Message = message,
+                StatusCode = statusCode
+            };
         }
 
-        public static Result<T> FailureResult(Exception ex, EnumHttpStatusCode statusCode = EnumHttpStatusCode.InternalServerError)
+        public static Result<T> FailureResult(
+            Exception ex,
+            EnumHttpStatusCode statusCode = EnumHttpStatusCode.InternalServerError
+        )
         {
-            return new Result<T> { Message = ex.ToString(), IsSuccess = false, StatusCode = statusCode };
+            return new Result<T>
+            {
+                Message = ex.ToString(),
+                IsSuccess = false,
+                StatusCode = statusCode
+            };
         }
 
-        public static Result<T> ExecuteResult(int result, EnumHttpStatusCode successStatusCode = EnumHttpStatusCode.Success, EnumHttpStatusCode failureStatusCode = EnumHttpStatusCode.BadRequest)
+        public static Result<T> ExecuteResult(
+            int result,
+            EnumHttpStatusCode successStatusCode = EnumHttpStatusCode.Success,
+            EnumHttpStatusCode failureStatusCode = EnumHttpStatusCode.BadRequest
+        )
         {
-            return result > 0 ?
-                Result<T>.SuccessResult(statusCode: successStatusCode)
+            return result > 0
+                ? Result<T>.SuccessResult(statusCode: successStatusCode)
                 : Result<T>.FailureResult(statusCode: failureStatusCode);
         }
     }
