@@ -1,80 +1,78 @@
 ﻿using DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog
+namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
+
+[Route("api/[controller]")]
+[ApiController]
+public class BlogController : BaseController
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BlogController : BaseController
+    private readonly BL_Blog _bL_Blog;
+
+    public BlogController(BL_Blog bL_Blog)
     {
-        private readonly BL_Blog _bL_Blog;
+        _bL_Blog = bL_Blog;
+    }
 
-        public BlogController(BL_Blog bL_Blog)
+    [HttpGet]
+    public async Task<IActionResult> GetBlogs()
+    {
+        try
         {
-            _bL_Blog = bL_Blog;
+            var result = await _bL_Blog.GetBlogList();
+            return Content(result);
         }
-
-        [HttpGet]
-        public async Task<IActionResult> GetBlogs()
+        catch (Exception ex)
         {
-            try
-            {
-                var result = await _bL_Blog.GetBlogList();
-                return Content(result);
-            }
-            catch (Exception ex)
-            {
-                return InternalSererError(ex);
-            }
+            return InternalSererError(ex);
         }
+    }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateBlog([FromBody] BlogRequestModel requestModel)
+    [HttpPost]
+    public async Task<IActionResult> CreateBlog([FromBody] BlogRequestModel requestModel)
+    {
+        try
         {
-            try
+            var result = requestModel.IsValid();
+            if (result.IsError)
             {
-                var result = requestModel.IsValid();
-                if (result.IsError)
-                {
-                    return BadRequest(result);
-                }
+                return BadRequest(result);
+            }
 
-                result = await _bL_Blog.CreateBlog(requestModel);
-                return Content(result);
-            }
-            catch (Exception ex)
-            {
-                return InternalSererError(ex);
-            }
+            result = await _bL_Blog.CreateBlog(requestModel);
+            return Content(result);
         }
-
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> UpdateBlog([FromBody] BlogRequestModel requestModel, int id)
+        catch (Exception ex)
         {
-            try
-            {
-                var result = await _bL_Blog.UpdateBlog(requestModel, id);
-                return Content(result);
-            }
-            catch (Exception ex)
-            {
-                return InternalSererError(ex);
-            }
+            return InternalSererError(ex);
         }
+    }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBlog(int id)
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> UpdateBlog([FromBody] BlogRequestModel requestModel, int id)
+    {
+        try
         {
-            try
-            {
-                var result = await _bL_Blog.DeleteBlog(id);
-                return Content(result);
-            }
-            catch (Exception ex)
-            {
-                return InternalSererError(ex);
-            }
+            var result = await _bL_Blog.UpdateBlog(requestModel, id);
+            return Content(result);
+        }
+        catch (Exception ex)
+        {
+            return InternalSererError(ex);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteBlog(int id)
+    {
+        try
+        {
+            var result = await _bL_Blog.DeleteBlog(id);
+            return Content(result);
+        }
+        catch (Exception ex)
+        {
+            return InternalSererError(ex);
         }
     }
 }

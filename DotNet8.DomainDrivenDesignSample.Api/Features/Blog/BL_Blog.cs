@@ -36,7 +36,7 @@ public class BL_Blog
 
         responseModel = await _blogRepository.UpdateBlog(requestModel, id);
 
-        result:
+    result:
         return responseModel;
     }
 
@@ -52,7 +52,7 @@ public class BL_Blog
 
         responseModel = await _blogRepository.DeleteBlog(id);
 
-        result:
+    result:
         return responseModel;
     }
 }
