@@ -9,8 +9,12 @@
 
 <details>
 
-<summary>Tips for collapsed sections</summary>
+<summary>Software Architecture & Design Pattern usage</summary>
 
-### You can add a header
+* Domain Driven Design (DDD)
+* Clean Architecture
+* Vertical Slice Architecture for folder structure
+* CQRS Pattern
+* Repository Pattern
 
 </details>
