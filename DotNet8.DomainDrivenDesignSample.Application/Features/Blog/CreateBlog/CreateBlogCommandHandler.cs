@@ -1,9 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
-using DotNet8.DomainDrivenDesignSample.Domain.Shared;
-using DotNet8.DomainDrivenDesignSample.Infrastructure.Mapper;
-using MediatR;
-
-namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.CreateBlog;
+﻿namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.CreateBlog;
 
 public class CreateBlogCommandHandler
     : IRequestHandler<CreateBlogCommand, Result<BlogResponseModel>>

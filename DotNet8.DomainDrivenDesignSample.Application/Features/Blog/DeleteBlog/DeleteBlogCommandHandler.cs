@@ -1,9 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
-using DotNet8.DomainDrivenDesignSample.Domain.Resources;
-using DotNet8.DomainDrivenDesignSample.Domain.Shared;
-using MediatR;
-
-namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.DeleteBlog;
+﻿namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.DeleteBlog;
 
 public class DeleteBlogCommandHandler
     : IRequestHandler<DeleteBlogCommand, Result<BlogResponseModel>>
