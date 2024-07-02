@@ -1,8 +1,12 @@
+using DotNet8.DomainDrivenDesignSample.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddFeatures(builder);
+
+builder.Services.AddMediatR();
 
 var app = builder.Build();
 

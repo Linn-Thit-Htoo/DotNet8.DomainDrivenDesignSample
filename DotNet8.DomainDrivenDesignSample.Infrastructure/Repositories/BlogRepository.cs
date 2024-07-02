@@ -1,4 +1,7 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Repositories;
+﻿using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
+using DotNet8.DomainDrivenDesignSample.Infrastructure.Db;
+
+namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Repositories;
 
 public class BlogRepository : IBlogRepository
 {
@@ -9,12 +12,12 @@ public class BlogRepository : IBlogRepository
         _context = context;
     }
 
-    public async Task<Result<BlogResponseModel>> CreateBlog(BlogRequestModel requestModel)
+    public async Task<Result<BlogResponseModel>> CreateBlog(TblBlog requestModel)
     {
         Result<BlogResponseModel> responseModel;
         try
         {
-            await _context.TblBlogs.AddAsync(requestModel.Change());
+            await _context.TblBlogs.AddAsync(requestModel);
             int result = await _context.SaveChangesAsync();
 
             responseModel = Result<BlogResponseModel>.ExecuteResult(

@@ -1,4 +1,7 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Api.Extensions;
+﻿using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
+using DotNet8.DomainDrivenDesignSample.Infrastructure.Db;
+
+namespace DotNet8.DomainDrivenDesignSample.Api.Extensions;
 
 public static class ServiceCollectionExtensions
 {
@@ -10,7 +13,6 @@ public static class ServiceCollectionExtensions
         services
             .AddDbContextService(builder)
             .AddRepositoryService()
-            .AddBusinessLogicService()
             .AddJsonService();
 
         return services;
@@ -36,12 +38,6 @@ public static class ServiceCollectionExtensions
     private static IServiceCollection AddRepositoryService(this IServiceCollection services)
     {
         services.AddScoped<IBlogRepository, BlogRepository>();
-        return services;
-    }
-
-    private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
-    {
-        services.AddScoped<BL_Blog>();
         return services;
     }
 

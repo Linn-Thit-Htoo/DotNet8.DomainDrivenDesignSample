@@ -1,4 +1,6 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Mapper;
+﻿using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
+
+namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Mapper;
 
 public static class Mapper
 {

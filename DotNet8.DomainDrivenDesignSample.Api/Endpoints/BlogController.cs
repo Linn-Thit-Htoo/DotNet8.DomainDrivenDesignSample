@@ -1,14 +1,21 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Api.Features.Blog;
+﻿using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.CreateBlog;
+using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.DeleteBlog;
+using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.GetBlogList;
+using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.UpdateBlog;
+using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
+using MediatR;
+
+namespace DotNet8.DomainDrivenDesignSample.Api.Endpoints;
 
 [Route("api/[controller]")]
 [ApiController]
 public class BlogController : BaseController
 {
-    private readonly BL_Blog _bL_Blog;
+    private readonly IMediator _mediator;
 
-    public BlogController(BL_Blog bL_Blog)
+    public BlogController(IMediator mediator)
     {
-        _bL_Blog = bL_Blog;
+        _mediator = mediator;
     }
 
     [HttpGet]
@@ -16,7 +23,9 @@ public class BlogController : BaseController
     {
         try
         {
-            var result = await _bL_Blog.GetBlogList();
+            var query = new GetBlogListQuery();
+            var result = await _mediator.Send(query);
+
             return Content(result);
         }
         catch (Exception ex)
@@ -36,7 +45,9 @@ public class BlogController : BaseController
                 return BadRequest(result);
             }
 
-            result = await _bL_Blog.CreateBlog(requestModel);
+            var command = new CreateBlogCommand(requestModel);
+            result = await _mediator.Send(command);
+
             return Content(result);
         }
         catch (Exception ex)
@@ -50,7 +61,9 @@ public class BlogController : BaseController
     {
         try
         {
-            var result = await _bL_Blog.UpdateBlog(requestModel, id);
+            var command = new UpdateBlogCommand(requestModel, id);
+            var result = await _mediator.Send(command);
+
             return Content(result);
         }
         catch (Exception ex)
@@ -64,7 +77,9 @@ public class BlogController : BaseController
     {
         try
         {
-            var result = await _bL_Blog.DeleteBlog(id);
+            var command = new DeleteBlogCommand(id);
+            var result = await _mediator.Send(command);
+
             return Content(result);
         }
         catch (Exception ex)

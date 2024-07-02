@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace DotNet8.DomainDrivenDesignSample.Api.Features;
+namespace DotNet8.DomainDrivenDesignSample.Api.Endpoints;
 
 [Route("api/[controller]")]
 [ApiController]

@@ -1,4 +1,4 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Domain.Models.Blog;
+﻿namespace DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
 
 public class BlogListResponseModel
 {
