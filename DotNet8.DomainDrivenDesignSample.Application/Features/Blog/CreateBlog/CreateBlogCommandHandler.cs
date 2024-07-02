@@ -2,26 +2,24 @@
 using DotNet8.DomainDrivenDesignSample.Domain.Shared;
 using DotNet8.DomainDrivenDesignSample.Infrastructure.Mapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.CreateBlog
+namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.CreateBlog;
+
+public class CreateBlogCommandHandler
+    : IRequestHandler<CreateBlogCommand, Result<BlogResponseModel>>
 {
-    public class CreateBlogCommandHandler : IRequestHandler<CreateBlogCommand, Result<BlogResponseModel>>
+    private readonly IBlogRepository _blogRepository;
+
+    public CreateBlogCommandHandler(IBlogRepository blogRepository)
     {
-        private readonly IBlogRepository _blogRepository;
+        _blogRepository = blogRepository;
+    }
 
-        public CreateBlogCommandHandler(IBlogRepository blogRepository)
-        {
-            _blogRepository = blogRepository;
-        }
-
-        public async Task<Result<BlogResponseModel>> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
-        {
-            return await _blogRepository.CreateBlog(request.RequestModel.Change());
-        }
+    public async Task<Result<BlogResponseModel>> Handle(
+        CreateBlogCommand request,
+        CancellationToken cancellationToken
+    )
+    {
+        return await _blogRepository.CreateBlog(request.RequestModel.Change());
     }
 }
