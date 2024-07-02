@@ -1,7 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
-using DotNet8.DomainDrivenDesignSample.Infrastructure.Db;
-
-namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Repositories;
+﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Repositories;
 
 public class BlogRepository : IBlogRepository
 {

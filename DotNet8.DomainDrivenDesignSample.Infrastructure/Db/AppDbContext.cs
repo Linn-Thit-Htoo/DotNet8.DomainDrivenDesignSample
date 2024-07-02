@@ -1,6 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
-
-namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Db;
+﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Db;
 
 public class AppDbContext : DbContext
 {
