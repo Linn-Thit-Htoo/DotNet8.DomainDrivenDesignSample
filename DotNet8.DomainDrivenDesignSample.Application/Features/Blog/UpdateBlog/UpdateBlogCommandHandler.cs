@@ -2,31 +2,29 @@
 using DotNet8.DomainDrivenDesignSample.Domain.Resources;
 using DotNet8.DomainDrivenDesignSample.Domain.Shared;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.UpdateBlog
+namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.UpdateBlog;
+
+public class UpdateBlogCommandHandler
+    : IRequestHandler<UpdateBlogCommand, Result<BlogResponseModel>>
 {
-    public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<BlogResponseModel>>
+    private readonly IBlogRepository _blogRepository;
+
+    public UpdateBlogCommandHandler(IBlogRepository blogRepository)
     {
-        private readonly IBlogRepository _blogRepository;
+        _blogRepository = blogRepository;
+    }
 
-        public UpdateBlogCommandHandler(IBlogRepository blogRepository)
+    public async Task<Result<BlogResponseModel>> Handle(
+        UpdateBlogCommand request,
+        CancellationToken cancellationToken
+    )
+    {
+        if (request.BlogId <= 0)
         {
-            _blogRepository = blogRepository;
+            return Result<BlogResponseModel>.FailureResult(MessageResource.InvalidId);
         }
 
-        public async Task<Result<BlogResponseModel>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
-        {
-            if (request.BlogId <= 0)
-            {
-                return Result<BlogResponseModel>.FailureResult(MessageResource.InvalidId);
-            }
-
-            return await _blogRepository.UpdateBlog(request.RequestModel, request.BlogId);
-        }
+        return await _blogRepository.UpdateBlog(request.RequestModel, request.BlogId);
     }
 }
