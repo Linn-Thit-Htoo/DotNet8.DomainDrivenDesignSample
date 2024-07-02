@@ -1,11 +1,4 @@
-﻿using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.CreateBlog;
-using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.DeleteBlog;
-using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.GetBlogList;
-using DotNet8.DomainDrivenDesignSample.Application.Features.Blog.UpdateBlog;
-using DotNet8.DomainDrivenDesignSample.Domain.Features.Blog;
-using MediatR;
-
-namespace DotNet8.DomainDrivenDesignSample.Api.Endpoints;
+﻿namespace DotNet8.DomainDrivenDesignSample.Api.Endpoints;
 
 [Route("api/[controller]")]
 [ApiController]
