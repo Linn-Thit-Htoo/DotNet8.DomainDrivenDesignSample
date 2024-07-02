@@ -11,6 +11,7 @@
 
 <summary>Software Architecture & Design Pattern usage</summary>
 
+
 * Domain Driven Design (DDD)
 * Clean Architecture
 * Vertical Slice Architecture for folder structure
