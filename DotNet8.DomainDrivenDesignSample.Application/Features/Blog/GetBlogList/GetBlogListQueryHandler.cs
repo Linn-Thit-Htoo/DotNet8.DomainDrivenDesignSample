@@ -4,7 +4,8 @@ using MediatR;
 
 namespace DotNet8.DomainDrivenDesignSample.Application.Features.Blog.GetBlogList;
 
-public class GetBlogListQueryHandler : IRequestHandler<GetBlogListQuery, Result<BlogListResponseModel>>
+public class GetBlogListQueryHandler
+    : IRequestHandler<GetBlogListQuery, Result<BlogListResponseModel>>
 {
     private readonly IBlogRepository _blogRepository;
 
@@ -13,7 +14,10 @@ public class GetBlogListQueryHandler : IRequestHandler<GetBlogListQuery, Result<
         _blogRepository = blogRepository;
     }
 
-    public async Task<Result<BlogListResponseModel>> Handle(GetBlogListQuery request, CancellationToken cancellationToken)
+    public async Task<Result<BlogListResponseModel>> Handle(
+        GetBlogListQuery request,
+        CancellationToken cancellationToken
+    )
     {
         return await _blogRepository.GetBlogList();
     }
