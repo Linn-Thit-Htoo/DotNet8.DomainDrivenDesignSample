@@ -15,6 +15,6 @@ public class CreateBlogCommandHandler
         CancellationToken cancellationToken
     )
     {
-        return await _blogRepository.CreateBlog(request.RequestModel.Change());
+        return await _blogRepository.CreateBlog(request.RequestModel.Map());
     }
 }

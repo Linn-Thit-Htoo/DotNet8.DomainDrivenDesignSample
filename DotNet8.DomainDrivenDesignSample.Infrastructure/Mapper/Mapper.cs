@@ -4,7 +4,7 @@ public static class Mapper
 {
     #region Blog
 
-    public static BlogModel Change(this TblBlog dataModel)
+    public static BlogModel Map(this TblBlog dataModel)
     {
         return new BlogModel
         {
@@ -15,7 +15,7 @@ public static class Mapper
         };
     }
 
-    public static TblBlog Change(this BlogRequestModel requestModel)
+    public static TblBlog Map(this BlogRequestModel requestModel)
     {
         return new TblBlog
         {

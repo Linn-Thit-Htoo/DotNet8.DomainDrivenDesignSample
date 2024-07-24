@@ -1,4 +1,6 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Api.Extensions;
+﻿using DotNet8.DomainDrivenDesignSample.Infrastructure.Features.Blog;
+
+namespace DotNet8.DomainDrivenDesignSample.Api.Extensions;
 
 public static class ServiceCollectionExtensions
 {

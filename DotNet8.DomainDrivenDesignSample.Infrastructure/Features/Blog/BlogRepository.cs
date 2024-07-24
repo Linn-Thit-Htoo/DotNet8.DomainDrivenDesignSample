@@ -1,4 +1,4 @@
-﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Repositories;
+﻿namespace DotNet8.DomainDrivenDesignSample.Infrastructure.Features.Blog;
 
 public class BlogRepository : IBlogRepository
 {
@@ -58,7 +58,7 @@ public class BlogRepository : IBlogRepository
             responseModel = Result<BlogResponseModel>.FailureResult(ex);
         }
 
-        result:
+    result:
         return responseModel;
     }
 
@@ -71,7 +71,7 @@ public class BlogRepository : IBlogRepository
 
             var model = new BlogListResponseModel
             {
-                Blogs = dataLst.Select(x => x.Change()).ToList()
+                Blogs = dataLst.Select(x => x.Map()).ToList()
             };
 
             responseModel = Result<BlogListResponseModel>.SuccessResult(model);
@@ -127,7 +127,7 @@ public class BlogRepository : IBlogRepository
             responseModel = Result<BlogResponseModel>.FailureResult(ex);
         }
 
-        result:
+    result:
         return responseModel;
     }
 }
